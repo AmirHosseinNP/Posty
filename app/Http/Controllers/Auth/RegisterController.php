@@ -14,7 +14,7 @@ class RegisterController extends Controller
         $this->middleware(['guest']);
     }
 
-    public function index()
+    public function create()
     {
         return view('auth.register');
     }
@@ -24,7 +24,7 @@ class RegisterController extends Controller
         // Data validation
         $this->validate($request, [
             'name' => 'required|max:255',
-            'username' => 'required|min:8|max:255|alpha_dash',
+            'username' => 'required|min:8|max:255|alpha_num',
             'email' => 'required|email',
             'password' => 'required|regex:#^(?=.*[a-z])(?=.*[A-Z])(?=.*[\d])[a-zA-Z\d]{8,}$#|confirmed',
         ]);

@@ -15,22 +15,25 @@
                     <a href="{{ route('dashboard') }}"
                         @class(['active pointer-events-none' => request()->routeIs('dashboard'), 'px-5 py-4 text-lg font-semibold'])>Dashboard</a>
                 @endauth
-                <a href="{{ route('posts') }}"
-                    @class(['active pointer-events-none' => request()->routeIs('posts'), 'px-5 py-4 text-lg font-semibold md:mr-auto'])>Posts</a>
+                <a href="{{ route('posts.index') }}"
+                    @class(['active pointer-events-none' => request()->routeIs('posts.index'), 'px-5 py-4 text-lg font-semibold md:mr-auto'])>Posts</a>
                 @auth
-                    <a href="{{ route('dashboard') }}"
-                       @class(['px-5 py-4 text-lg font-semibold capitalize'])>{{ auth()->user()->name }}</a>
+                    <a href="{{ route('user.posts', auth()->user()) }}"
+                        @class(['active pointer-events-none' => request()->url() === route('user.posts', auth()->user()), 'px-5 py-4 text-lg font-semibold capitalize'])>
+                        {{ auth()->user()->name }}
+                    </a>
                     <form action="{{ route('logout') }}" method="post">
                         @csrf
+                        @method('DELETE')
                         <button type="submit" class="px-5 py-4 md:pr-0 w-full text-lg font-semibold text-left">Logout
                         </button>
                     </form>
                 @endauth
                 @guest
-                    <a href="{{ route('login') }}"
-                       @class(['active pointer-events-none' => request()->routeIs('login'), 'px-5 py-4 text-lg font-semibold'])>Login</a>
-                    <a href="{{ route('register') }}"
-                       @class(['active pointer-events-none' => request()->routeIs('register'), 'px-5 md:pr-0 py-4 text-lg font-semibold'])>Register</a>
+                    <a href="{{ route('login.create') }}"
+                        @class(['active pointer-events-none' => request()->routeIs('login.create'), 'px-5 py-4 text-lg font-semibold'])>Login</a>
+                    <a href="{{ route('register.create') }}"
+                        @class(['active pointer-events-none' => request()->routeIs('register.create'), 'px-5 md:pr-0 py-4 text-lg font-semibold'])>Register</a>
                 @endguest
             </div>
             <button type="button" class="py-4 md:hidden text-3xl" id="navbar-toggle">

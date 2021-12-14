@@ -2,6 +2,9 @@
 
 namespace App\Http\Controllers;
 
+use App\Mail\PostLiked;
+use Illuminate\Support\Facades\Mail;
+
 class DashboardController extends Controller
 {
     public function __construct()

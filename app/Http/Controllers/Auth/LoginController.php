@@ -13,7 +13,7 @@ class LoginController extends Controller
         $this->middleware(['auth'])->only(['destroy']);
     }
 
-    public function index()
+    public function create()
     {
         return view('auth.login');
     }

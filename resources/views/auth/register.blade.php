@@ -4,7 +4,7 @@
     <div class="flex justify-center">
         <div class="card max-w-[500px] w-full bg-white rounded-lg shadow-md">
             <div class="card-body p-5">
-                <form action="{{ route('register') }}" method="post" class="flex flex-col">
+                <form action="{{ route('register.store') }}" method="post" class="flex flex-col">
                     @csrf
                     <x-input label="Your name:" type="text" name="name" placeholder="Name"></x-input>
                     <x-input label="Username:" type="text" name="username" placeholder="Username"></x-input>

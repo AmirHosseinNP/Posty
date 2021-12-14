@@ -12,7 +12,7 @@
                     </label>
                 </div>
                 @enderror
-                <form action="{{ route('login') }}" method="post" class="flex flex-col">
+                <form action="{{ route('login.store') }}" method="post" class="flex flex-col">
                     @csrf
                     <x-input label="Your email:" type="text" name="email" placeholder="Enter your email"></x-input>
                     <x-input label="Password:" type="password" name="password"
